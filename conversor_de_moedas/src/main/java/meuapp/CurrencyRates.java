@@ -72,4 +72,15 @@ public class CurrencyRates {
         double brlRate = rates.get("BRL").getAsDouble();
         return amount / copRate * brlRate;
     }
+    public double convertUSDToBRL(double amount) {
+        double usdRate = rates.get("USD").getAsDouble();
+        double brlRate = rates.get("BRL").getAsDouble();
+        return amount * usdRate / brlRate;
+    }
+
+    public double convertBRLToUSD(double amount) {
+        double usdRate = rates.get("USD").getAsDouble();
+        double brlRate = rates.get("BRL").getAsDouble();
+        return amount / usdRate * brlRate;
+    }
 }

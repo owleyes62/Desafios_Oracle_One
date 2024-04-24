@@ -40,6 +40,8 @@ public class ExchangeRateApiExample {
                     6 - Converter BOB para BRL
                     7 - Converter CLP para BRL
                     8 - Converter COP para BRL
+                    9 - Converter BRL para USD
+                    10 - Converter USD para BRL
                     0 - Sair
                     """);
 
@@ -86,9 +88,18 @@ public class ExchangeRateApiExample {
                         double valorCOPtoBRL = currencyRates.convertCOPToBRL(valor);
                         System.out.println("BRL: " + valorCOPtoBRL);
                         break;
+                    case 9:
+                        double valorBRLtoUSD = currencyRates.convertBRLToUSD(valor);
+                        System.out.println("USD: " + valorBRLtoUSD);
+                        break;
+                    case 10:
+                        double valorUSDtoBRL = currencyRates.convertUSDToBRL(valor);
+                        System.out.println("BRL: " + valorUSDtoBRL);
+                        break;
                     default:
                         System.out.println("Opção inválida!");
                         break;
+
                 }
             }
         } catch (IOException | InterruptedException e) {
