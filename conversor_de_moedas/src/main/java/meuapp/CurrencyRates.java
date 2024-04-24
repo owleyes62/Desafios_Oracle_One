@@ -9,17 +9,12 @@ public class CurrencyRates {
         this.rates = jsonObject.getAsJsonObject("rates");
     }
 
-    // Métodos para obter as taxas de câmbio de cada moeda
     public double getARSRate() {
         return rates.get("ARS").getAsDouble();
     }
 
     public double getBOBRate() {
         return rates.get("BOB").getAsDouble();
-    }
-
-    public double getBRLRate() {
-        return rates.get("BRL").getAsDouble();
     }
 
     public double getCLPRate() {
@@ -30,33 +25,51 @@ public class CurrencyRates {
         return rates.get("COP").getAsDouble();
     }
 
-    public double getUSDRate() {
-        return rates.get("USD").getAsDouble();
+
+    public double convertBRLToARS(double amount) {
+        double brlRate = rates.get("BRL").getAsDouble();
+        double arsRate = rates.get("ARS").getAsDouble();
+        return amount / brlRate * arsRate;
     }
 
-    // Métodos para realizar as conversões entre moedas
-    public double convertToARS(double amount) {
-        return amount * getARSRate();
+    public double convertBRLToCOP(double amount) {
+        double brlRate = rates.get("BRL").getAsDouble();
+        double copRate = rates.get("COP").getAsDouble();
+        return amount / brlRate * copRate;
     }
 
-    public double convertToBOB(double amount) {
-        return amount * getBOBRate();
+    public double convertBRLToCLP(double amount) {
+        double brlRate = rates.get("BRL").getAsDouble();
+        double clpRate = rates.get("CLP").getAsDouble();
+        return amount / brlRate * clpRate;
     }
 
-    public double convertToBRL(double amount) {
-        return amount * getBRLRate();
+    public double convertARSToBRL(double amount) {
+        double arsRate = rates.get("ARS").getAsDouble();
+        double brlRate = rates.get("BRL").getAsDouble();
+        return amount / arsRate * brlRate;
     }
 
-    public double convertToCLP(double amount) {
-        return amount * getCLPRate();
+    public double convertBOBToBRL(double amount) {
+        double bobRate = rates.get("BOB").getAsDouble();
+        double brlRate = rates.get("BRL").getAsDouble();
+        return amount / bobRate * brlRate;
     }
 
-    public double convertToCOP(double amount) {
-        return amount * getCOPRate();
+    public double convertBRLToBOB(double amount) {
+        double brlRate = rates.get("BRL").getAsDouble();
+        double bobRate = rates.get("BOB").getAsDouble();
+        return amount / brlRate * bobRate;
     }
 
-    // Método para converter de uma moeda para outra qualquer
-    public double convertToCurrency(double amount, double targetRate) {
-        return amount * targetRate;
+    public double convertCLPToBRL(double amount) {
+        double clpRate = rates.get("CLP").getAsDouble();
+        double brlRate = rates.get("BRL").getAsDouble();
+        return amount / clpRate * brlRate;
+    }
+    public double convertCOPToBRL(double amount) {
+        double copRate = rates.get("COP").getAsDouble();
+        double brlRate = rates.get("BRL").getAsDouble();
+        return amount / copRate * brlRate;
     }
 }
